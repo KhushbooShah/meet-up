@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { Route, Switch } from "react-router";
+import AllMeetupsPage from "./pages/AllMeetups";
+import NewMeetupPage from "./pages/NewMeetup";
+import FavoritesPage from "./pages/Favorites";
+import MainNavigation from "./components/layout/MainNavigation";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MainNavigation></MainNavigation>
+      <Switch>
+        <Route path="/" exact>
+          <AllMeetupsPage></AllMeetupsPage>
+        </Route>
+        <Route path="/new-meetup">
+          <NewMeetupPage></NewMeetupPage>
+        </Route>
+        <Route path="/favorites">
+          <FavoritesPage></FavoritesPage>
+        </Route>
+      </Switch>
     </div>
   );
 }
